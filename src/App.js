@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import Main from "./components/Main";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ParticlesBackground from "./components/Particles";
 
-function App() {
+const App = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [, setHeight] = useState(window.innerHeight);
+  const [showContent, setShowContent] = useState(false);
+
+  const updateWidthAndHeight = () => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateWidthAndHeight);
+    return () => window.removeEventListener("resize", updateWidthAndHeight);
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <ParticlesBackground />
+      <Header
+        width={width}
+        showContent={showContent}
+        setShowContent={setShowContent}
+      />
+      <Main
+        width={width}
+        showContent={showContent}
+        setShowContent={setShowContent}
+      />
+      <Footer width={width} />
     </div>
   );
-}
+};
 
 export default App;
