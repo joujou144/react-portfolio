@@ -13,9 +13,9 @@ const Main = ({ showContent, setShowContent, width }) => {
   const tabContents = [<Sudoku />, <Calendar />, <SomeGame />, <ECommerce />];
   const [activeTab, setActiveTab] = useState(null);
   return (
-    <section className="main">
+    <section>
       <div
-        className="photo-container"
+        className="hero-bg load-hidden"
         onClick={() => setShowContent(false)}
       ></div>
 
@@ -33,10 +33,10 @@ const Main = ({ showContent, setShowContent, width }) => {
 
         <div className="straight-icon">
           <StraightLineIcon
-            width="255"
-            height="20"
+            stroke="#e4e4e4"
+            width="150"
             viewBox="0 0 15000 810"
-            strokeWidth="20"
+            strokeWidth="50"
           />
         </div>
 
@@ -58,7 +58,7 @@ const Main = ({ showContent, setShowContent, width }) => {
       </div>
 
       <div
-        className="photo-container"
+        className="hero-bg load-hidden"
         onClick={() => setShowContent(false)}
       ></div>
     </section>

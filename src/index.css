@@ -1,5 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Charm&family=Charmonman&family=Lora:ital,wght@0,400;0,500;0,700;1,400&family=Parisienne&family=Petit+Formal+Script&family=Pinyon+Script&display=swap');
 
+:root {  
+  --primary: #1d1d20;
+  --magic: #e4e4e4;
+  --content-bg: #ffffff08;
+  --light: #ccc;
+  --dust: #ffe6ff;
+  --accent3: #ffecb4;
+  --rust: #cf634a;
+  --nutmeg: #ce7460;
+  --pitch: #1a1919;
+  --sky: #99b3a8;
+  --candy: #ff65bd;
+  --candy3: #ffa4d8;
+  --candy2: #ff2483;
+  --clr2: #b3a78c;
+  --stone: #e3bca6;
+  --rose: #f7c7cf;
+  --shadowDark: #6e666636;
+  --shadowLight: #e9e6e636; 
+  --scroll: #0d0e0e;
+
+  --letter_space: 0.05em;
+  --spacer: 2em;
+  --spacer-short: 1em;
+}
+
 html {
   height: 100%;
 }
@@ -7,9 +33,9 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #1a1919;
+  background-color: var(--primary);
   min-height: 100%;
-  color: #E4E4E4;
+  color: var(--magic);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -19,27 +45,31 @@ body {
   letter-spacing: 0.03em;
   font-weight: 400;
 
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
+  -moz-osx-font-smoothing: grayscale; 
 }
 
+.bio p,
+.tab-label li,
+.tab-content p,
+.tab-content a {
+  font-size: 0.9rem;
+}
 
 .container {
   min-height: 100%;
-  border: 1px solid yellow;
-
+  width: 100%;
+  margin: 0 auto;
+  scroll-behavior: smooth;
 }
 
 header {
   /* background-color: #1a1919; */
-  /* border: 1px solid white; */
   position: sticky;
   right: 0;
   left: 0;
   top: 0;
+  padding-right: 0.5em;
 }
 
 header .name {
@@ -49,47 +79,67 @@ header .name {
   gap: 1.2em;
 }
 
-header h1 {
+header p {
   font-family: Charmonman;
   font-weight: 100;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   display: flex ;
   justify-content: flex-end;
-  padding-right: 1.5em;
   margin-top: -0.1em;
   margin-bottom: 0.2em;
+  padding-right: 1.5em;
 }
 
-.main {
-  width: 100%;
-  margin: 0 auto;
-
-}
-
-.photo-container {
+.hero-bg {
   background-image: url('../public/images/mypic_eldar2.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 75%;
+  background-size: 65%;
   background-attachment: fixed;
   height: 100vh;
   display: grid;
   place-items: center;
-  cursor: pointer;
+  cursor: pointer; 
+  filter: grayscale(10%);
 }
 
 .tab-container {
-  background-color: #1a1919;
-  border: 1px solid pink;
+  background: var(--content-bg);
+  backdrop-filter: blur(2px);
+  box-shadow: 0px 0px 0px 10px #00000006;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
-  gap: 1em;
-  padding-left: 3em;
-  padding-right: 3em;
-  padding-bottom: 1.5em;
-  padding-top: 1.5em;
+  padding: 0 2em 0.5em;
+  margin: 0 2em;
+}
+
+.tab-title {
+  font-weight: 200;
+  font-size: 1.5rem;
+}
+
+.bio,
+.tab-content {
+  padding: 0.5em 0;
+}
+
+.tab-content-links {
+  display: flex;
+  gap: 1em;  
+}
+
+.tab-content-links a {
+  text-decoration: none;
+  padding: 0.3em 0;
+  border-bottom: 1px solid transparent;
+  color: var(--rose);
+
+}
+
+.tab-content-links a:hover {
+  border-bottom: 1px solid #E4E4E4;
+  transition: 0.6s ease-in-out;
 }
 
 .straight-icon {
@@ -97,25 +147,32 @@ header h1 {
 }
 
 .tab-label {
-  padding-left: 0;
- 
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
 }
 
 .tab-label li {
   list-style: none;
+  text-decoration: none;
+}
+
+.active-link {
+  color: var(--candy);
+  border-bottom: 1px solid var(--candy);
 }
 
 footer {
-  background-color: #1a1919;
-  border: 1px solid white;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-top: auto;
-  position: sticky;
+  /* position: sticky;
   right: 0;
   left: 0;
-  bottom: 0;
+  bottom: 0; */
   padding-top: 0.5em;
   padding-bottom: 0.5em;
 }
@@ -123,4 +180,62 @@ footer {
 footer p {
   font-size: 12px;
   padding-bottom: 1px;
+}
+
+.line-icon {
+  /* stroke: #fff; */
+  stroke: #efeceb;
+  /* stroke-dashoffset: 800;
+  stroke-dasharray: 800; */
+  animation: 4s ease-in forwards icon;
+}
+
+.name-icon {
+ 
+  stroke: #141414;
+  /* stroke:  #EFECEB; */
+  /* stroke: #1a1919; */
+  stroke-width: 1;
+  /* stroke: #0a0909; */
+  /* fill: #e4e4e4; */
+  fill-opacity: 2;
+  fill: #efeceb;
+  /* fill: #fff; */
+  /* fill: #0d0c0c; */
+  animation-fill-mode: forwards;
+  stroke-opacity: 1;
+  stroke-dashoffset: 3000;
+  stroke-dasharray: 3000;
+  animation: 12s ease-in forwards name-icon;
+}
+
+@keyframes name-icon {
+  0% {
+    animation-fill-mode: none;
+    stroke-dashoffset: 3000;
+  }
+
+  20% {
+    animation-fill-mode: 20%;
+    stroke-dashoffset: 2500;
+  }
+  
+  40% {
+    animation-fill-mode: 40%;
+    stroke-dashoffset: 2000;
+  }
+
+  60%{
+    animation-fill-mode: 60%;
+    stroke-dashoffset: 1500;
+  }
+
+  80%{
+    animation-fill-mode: 80%;
+    stroke-dashoffset: 1000;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
 }

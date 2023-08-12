@@ -7,6 +7,7 @@ const Header = ({ width }) => {
       <div className="name">
         <StraightLineIcon
           height="20"
+          className="icon line-icon"
           viewBox="0 0 15000 810"
           width={
             width <= 400
@@ -28,6 +29,7 @@ const Header = ({ width }) => {
           }
         />
         <LogoNameIcon
+          className="icon name-icon"
           height={width <= 400 ? "60" : "80"}
           viewBox={
             width <= 400
@@ -41,7 +43,7 @@ const Header = ({ width }) => {
           width={width <= 500 ? "300" : width <= 650 ? "370" : "450"}
         />
       </div>
-      <h1>Frontend Developer</h1>
+      <p className="load-hidden">{"Frontend Developer"}</p>
     </header>
   );
 };

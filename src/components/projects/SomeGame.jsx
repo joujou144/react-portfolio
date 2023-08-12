@@ -2,7 +2,7 @@ import React from "react";
 
 const SomeGame = () => {
   return (
-    <>
+    <div className="tab-content">
       <p>
         {
           "It is a sequence of Latin words that, as they are positioned, do not form sentences with a complete sense, but give life to a test text useful"
@@ -14,7 +14,7 @@ const SomeGame = () => {
         }
       </p>
 
-      <div className="flex gap-4 cursor-pointer">
+      <div className="tab-content-links">
         <a
           href="https://github.com/joujou144"
           className="hover:border-b transition-all duration-100 ease py-2"
@@ -28,7 +28,7 @@ const SomeGame = () => {
           {"View demo"}
         </a>
       </div>
-    </>
+    </div>
   );
 };
 

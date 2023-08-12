@@ -6,6 +6,7 @@ const Footer = ({ width }) => {
       <p>&copy; thinkaholic.me</p>
 
       <StraightLineIcon
+        stroke="#e4e4e4"
         height="10"
         width={
           width <= 380

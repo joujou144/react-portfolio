@@ -15,7 +15,7 @@ const ParticlesBackground = () => {
         autoPlay: true,
         background: {
           color: {
-            value: "#1a1919",
+            value: "#1d1d20",
           },
           image: "",
           position: "",
@@ -27,7 +27,7 @@ const ParticlesBackground = () => {
           composite: "destination-out",
           cover: {
             color: {
-              value: "#1a1919",
+              value: "#1d1d20",
             },
             opacity: 1,
           },

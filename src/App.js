@@ -6,17 +6,15 @@ import ParticlesBackground from "./components/Particles";
 
 const App = () => {
   const [width, setWidth] = useState(window.innerWidth);
-  const [, setHeight] = useState(window.innerHeight);
   const [showContent, setShowContent] = useState(false);
 
-  const updateWidthAndHeight = () => {
+  const updateWidth = () => {
     setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
   };
 
   useEffect(() => {
-    window.addEventListener("resize", updateWidthAndHeight);
-    return () => window.removeEventListener("resize", updateWidthAndHeight);
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
   });
 
   return (
