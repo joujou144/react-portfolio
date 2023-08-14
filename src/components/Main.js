@@ -7,61 +7,81 @@ import ECommerce from "./projects/ECommerce";
 import SomeGame from "./projects/SomeGame";
 import Sudoku from "./projects/Sudoku";
 import StraightLineIcon from "./icons/StraightLineIcon";
+import Background from "./Background";
+import SlantedLineIcon from "./icons/SlantedLineIcon";
 
-const Main = ({ showContent, setShowContent, width }) => {
+const Main = ({
+  width,
+  activeTab,
+  setActiveTab,
+  showContent,
+  setShowContent,
+}) => {
   const tabLabels = ["Sudoku", "Calendar", "Some game", "E-commerce"];
   const tabContents = [<Sudoku />, <Calendar />, <SomeGame />, <ECommerce />];
-  const [activeTab, setActiveTab] = useState(null);
-  return (
-    <section>
-      <div
-        className="hero-bg load-hidden"
-        onClick={() => setShowContent(false)}
-      ></div>
 
-      <div className="tab-container">
-        {showContent ? (
-          <div className={`${tabLabels[activeTab] ? "block" : "hidden"}`}>
-            <TabContent
-              content={tabContents[activeTab]}
-              title={tabLabels[activeTab]}
-            />
-          </div>
-        ) : (
-          <Bio width={width} />
+  return (
+    <div className="main">
+      <div>
+        {showContent && activeTab !== null && (
+          <section className={`tab-body ${showContent && "active"}`}>
+            <>
+              <h2 className="content-title">{tabLabels[activeTab]}</h2>
+              <div>{tabContents[activeTab]}</div>
+            </>
+          </section>
         )}
 
-        <div className="straight-icon">
-          <StraightLineIcon
-            stroke="#e4e4e4"
-            width="150"
-            viewBox="0 0 15000 810"
-            strokeWidth="50"
-          />
-        </div>
+        {!showContent && (
+          <section className={`tab-body bio ${!showContent && "active"}`}>
+            <Bio width={width} />
+          </section>
+        )}
+      </div>
+      {/* {showContent ? (
+        <section className="tab-body">
+          <div>
+            <h2 className="content-title">{tabLabels[activeTab]}</h2>
+            <div>{tabContents[activeTab]}</div>
+          </div>
+        </section>
+      ) : (
+       
+        <Bio width={width} />
+      )} */}
 
-        <div>
-          <h2>{"Projects"}</h2>
-          {tabLabels.map((label, index) => (
-            <ul key={index} className="tab-label">
-              <Tab
-                label={label}
-                onClick={() => {
-                  setActiveTab(index);
-                  setShowContent(true);
-                }}
-                className={activeTab === index ? "active-link" : ""}
-              />
-            </ul>
-          ))}
-        </div>
+      <div className="tab-section">
+        <StraightLineIcon
+          stroke="#e4e4e4"
+          width="150"
+          viewBox="0 0 15000 810"
+          strokeWidth="50"
+          className="main-line-icon"
+        />
+
+        <h2>{"Projects"}</h2>
+        {tabLabels.map((label, index) => (
+          <ul key={index} className="tab-label">
+            <Tab
+              label={label}
+              onClick={() => {
+                setActiveTab(index);
+                setShowContent(true);
+              }}
+              className={activeTab === index ? "active-link" : ""}
+            />
+          </ul>
+        ))}
       </div>
 
-      <div
-        className="hero-bg load-hidden"
-        onClick={() => setShowContent(false)}
-      ></div>
-    </section>
+      <Background setActiveTab={setActiveTab} setShowContent={setShowContent} />
+      <SlantedLineIcon
+        stroke="#e4e4e4"
+        width="180"
+        viewBox="0 0 3000 810"
+        strokeWidth="10"
+      />
+    </div>
   );
 };
 

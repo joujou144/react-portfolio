@@ -4,10 +4,11 @@ import LogoNameIcon from "./icons/LogoNameIcon";
 const Header = ({ width }) => {
   return (
     <header>
-      <div className="name">
+      <div className="line-icon">
         <StraightLineIcon
+          stroke="#efeceb"
           height="20"
-          className="icon line-icon"
+          className="icon"
           viewBox="0 0 15000 810"
           width={
             width <= 400
@@ -28,6 +29,9 @@ const Header = ({ width }) => {
               : "150"
           }
         />
+      </div>
+
+      <div className="name">
         <LogoNameIcon
           className="icon name-icon"
           height={width <= 400 ? "60" : "80"}
@@ -42,8 +46,8 @@ const Header = ({ width }) => {
           }
           width={width <= 500 ? "300" : width <= 650 ? "370" : "450"}
         />
+        <h1 className="load-hidden">{"Frontend Developer"}</h1>
       </div>
-      <p className="load-hidden">{"Frontend Developer"}</p>
     </header>
   );
 };

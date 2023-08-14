@@ -1,6 +1,13 @@
 import React from "react";
 
-const SlantedLineIcon = ({ width, height, viewBox, strokeWidth }) => {
+const SlantedLineIcon = ({
+  width,
+  height,
+  viewBox,
+  strokeWidth,
+  className,
+  stroke,
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,6 +15,7 @@ const SlantedLineIcon = ({ width, height, viewBox, strokeWidth }) => {
       zoomAndPan="magnify"
       viewBox={viewBox}
       height={height}
+      className={className}
       preserveAspectRatio="xMidYMid meet"
       version="1.0"
     >
@@ -17,7 +25,7 @@ const SlantedLineIcon = ({ width, height, viewBox, strokeWidth }) => {
         fill="none"
         strokeLinejoin="miter"
         d="M 1.001545 0.998041 L 4080.284174 1.000431 "
-        stroke="#e4e4e4"
+        stroke={stroke}
         strokeWidth={strokeWidth}
         strokeOpacity="1"
         strokeMiterlimit="4"

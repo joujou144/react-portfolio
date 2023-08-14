@@ -3,8 +3,9 @@
 :root {  
   --primary: #1d1d20;
   --magic: #e4e4e4;
-  --content-bg: #ffffff08;
-  --light: #ccc;
+  --clr-dark: #ffffff08;
+  --clr-pitch: #3f3e3e11;
+  --light: #efeceb;
   --dust: #ffe6ff;
   --accent3: #ffecb4;
   --rust: #cf634a;
@@ -20,124 +21,187 @@
   --shadowDark: #6e666636;
   --shadowLight: #e9e6e636; 
   --scroll: #0d0e0e;
-
-  --letter_space: 0.05em;
-  --spacer: 2em;
-  --spacer-short: 1em;
 }
 
-html {
-  height: 100%;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--primary);
-  min-height: 100%;
-  color: var(--magic);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  box-sizing: border-box;
-  user-select: none;
-  font-family: 'Lora';
-  letter-spacing: 0.03em;
-  font-weight: 400;
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; 
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  word-spacing: 1.4px;
+  color: var(--light);
+  background-color: var(--primary);
+  user-select: none;
+  font-family: 'Lora', sans-serif;
+  font-weight: 400;
 }
 
 .bio p,
 .tab-label li,
 .tab-content p,
 .tab-content a {
-  font-size: 0.9rem;
+  font-size: 1rem;
+}
+
+.app {
+  height: 100vh;
+  /* margin: 2.5em auto; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-  min-height: 100%;
-  width: 100%;
+  max-width: 1480px;
+  width: 90%;
   margin: 0 auto;
-  scroll-behavior: smooth;
+  background: var(--clr-pitch);
+  backdrop-filter: blur(2px);
+  box-shadow: 0px 0px 8px 15px #00000006;
+  border-radius: 8px;
+  padding: 1em 0;
+  /* border: 1px solid pink; */
+}
+
+
+.hero-bg img{
+  max-width: 250px;
+  cursor: pointer; 
+  margin-bottom: -0.3em;
+  filter: grayscale(25%);
+}
+
+.main {
+  padding: 3em 0 4em 3em;
+  display: flex;
+  /* border: 1px solid purple; */
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* .main > * {
+  height: 255px;
+} */
+
+.main > *:nth-child(1) {
+  flex: 1 1 45%;
+}
+
+.main > *:nth-child(2) {
+  flex: 1 1 20%;
+  align-self: flex-end;
+  padding-left: 2em;
+}
+
+.main > *:nth-child(3) {
+  flex: 1 1 10%;
+
+  align-self: flex-end;
+  /* border: 1px solid white; */
+}
+
+.main > *:nth-child(4) {
+  flex: 1 1 10%;
+}
+
+.tab-section {
+  display: flex;
+  /* mobile */
+  flex-direction: column;
+  gap: 0.5em;
+  /* border: 1px solid orange; */
 }
 
 header {
-  /* background-color: #1a1919; */
-  position: sticky;
-  right: 0;
-  left: 0;
-  top: 0;
-  padding-right: 0.5em;
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  /* border: 1px solid purple; */
+}
+
+header .line-icon {
+  /* border: 1px solid yellow; */
+  margin-top: -2.4em;
 }
 
 header .name {
   display: flex;
-  justify-items: start;
-  align-items: center;
-  gap: 1.2em;
+  flex-direction: column;
+  align-items: flex-end;
+  /* border: 1px solid blue */
 }
 
-header p {
+header h1 {
   font-family: Charmonman;
   font-weight: 100;
-  font-size: 1.2rem;
-  display: flex ;
-  justify-content: flex-end;
-  margin-top: -0.1em;
-  margin-bottom: 0.2em;
-  padding-right: 1.5em;
+  font-size: 1.8rem;
+  padding-right: 0.2em;
 }
 
-.hero-bg {
-  background-image: url('../public/images/mypic_eldar2.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 65%;
-  background-attachment: fixed;
-  height: 100vh;
-  display: grid;
-  place-items: center;
-  cursor: pointer; 
-  filter: grayscale(10%);
+.name-icon {
+  fill: var(--light);
+  stroke-opacity: 1;
+  stroke: var(--primary);
+  stroke-width: 1.2;
+  /* fill-rule: evenodd; */
+  stroke-dashoffset: 3000;
+  stroke-dasharray: 3000;
+  animation: 12s ease-in forwards name-icon;
 }
 
-.tab-container {
-  background: var(--content-bg);
-  backdrop-filter: blur(2px);
-  box-shadow: 0px 0px 0px 10px #00000006;
-  border-radius: 8px;
+
+.tab-body {
   display: flex;
   flex-direction: column;
-  padding: 0 2em 0.5em;
-  margin: 0 2em;
+  gap: 1em;
+  transition: all 0.5s ease-in-out;
+  border: 1px solid pink;
+  height: 300px;
+  opacity: 0;
+  transform: translateY(-100%); 
 }
 
-.tab-title {
+.tab-body.active {
+  /* max-height: 290px; 
+  opacity: 1;
+  transform: translateY(0);  */
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+/* .tab-body.active.slide-up {
+  transform: translateY(-100%); 
+} */
+
+.bio p {
+  white-space: pre-wrap;
+}
+
+.content-title {
   font-weight: 200;
   font-size: 1.5rem;
 }
 
-.bio,
-.tab-content {
-  padding: 0.5em 0;
-}
-
-.tab-content-links {
+.content-links {
   display: flex;
   gap: 1em;  
 }
 
-.tab-content-links a {
+.content-links a {
   text-decoration: none;
   padding: 0.3em 0;
   border-bottom: 1px solid transparent;
   color: var(--rose);
-
 }
 
-.tab-content-links a:hover {
+.content-links a:hover {
   border-bottom: 1px solid #E4E4E4;
   transition: 0.6s ease-in-out;
 }
@@ -157,6 +221,8 @@ header p {
 .tab-label li {
   list-style: none;
   text-decoration: none;
+  padding: 0.2em 0;
+  transition: color 0.3s ease;
 }
 
 .active-link {
@@ -168,48 +234,40 @@ footer {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-top: auto;
-  /* position: sticky;
-  right: 0;
-  left: 0;
-  bottom: 0; */
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding: 1em 0;
+
 }
 
 footer p {
   font-size: 12px;
   padding-bottom: 1px;
 }
-
+/* 
 .line-icon {
-  /* stroke: #fff; */
-  stroke: #efeceb;
-  /* stroke-dashoffset: 800;
-  stroke-dasharray: 800; */
+  stroke: var(--light);
+  stroke-dashoffset: 800;
+  stroke-dasharray: 800;
   animation: 4s ease-in forwards icon;
 }
 
 .name-icon {
- 
   stroke: #141414;
-  /* stroke:  #EFECEB; */
-  /* stroke: #1a1919; */
+  stroke:  var(--primary);
+  stroke: #1a1919;
   stroke-width: 1;
-  /* stroke: #0a0909; */
-  /* fill: #e4e4e4; */
+  stroke: #0a0909;
+  fill: #e4e4e4;
   fill-opacity: 2;
   fill: #efeceb;
-  /* fill: #fff; */
-  /* fill: #0d0c0c; */
+  fill: #0d0c0c;
   animation-fill-mode: forwards;
   stroke-opacity: 1;
   stroke-dashoffset: 3000;
   stroke-dasharray: 3000;
   animation: 12s ease-in forwards name-icon;
-}
+} */
 
-@keyframes name-icon {
+/* @keyframes name-icon {
   0% {
     animation-fill-mode: none;
     stroke-dashoffset: 3000;
@@ -238,4 +296,4 @@ footer p {
   100% {
     stroke-dashoffset: 0;
   }
-}
+} */

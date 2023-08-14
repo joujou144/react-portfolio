@@ -2,7 +2,7 @@ import React from "react";
 
 const Calendar = () => {
   return (
-    <div className="tab-content">
+    <>
       <p>
         {
           "It is a sequence of Latin words that, as they are positioned, do not form sentences with a complete sense, but give life to a test text useful"
@@ -14,7 +14,7 @@ const Calendar = () => {
         }
       </p>
 
-      <div className="tab-content-links">
+      <div className="content-links">
         <a
           href="https://github.com/joujou144"
           className="hover:border-b transition-all duration-100 ease py-2"
@@ -28,7 +28,7 @@ const Calendar = () => {
           {"View demo"}
         </a>
       </div>
-    </div>
+    </>
   );
 };
 
