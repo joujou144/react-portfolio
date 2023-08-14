@@ -1,7 +1,7 @@
 
 ## New portfolio with React & tsParticles
 
-Status: Work in Progress
+`Status: Work in Progress`
 
 In the project directory, you can run:
 
