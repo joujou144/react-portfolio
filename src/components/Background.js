@@ -1,12 +1,11 @@
 import React from "react";
 import MyPic from "./images/mypic_eldar2.png";
 
-const Background = ({ setActiveTab, setShowContent }) => {
+const Background = ({ setActiveTab }) => {
   return (
     <div
       className="hero-bg load-hidden"
       onClick={() => {
-        setShowContent(false);
         setActiveTab(null);
       }}
     >

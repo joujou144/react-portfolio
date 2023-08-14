@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import Bio from "./Bio";
-import Tab from "./Tab";
-import TabContent from "./TabContent";
 import Calendar from "./projects/Calendar";
 import ECommerce from "./projects/ECommerce";
 import SomeGame from "./projects/SomeGame";
@@ -10,45 +8,31 @@ import StraightLineIcon from "./icons/StraightLineIcon";
 import Background from "./Background";
 import SlantedLineIcon from "./icons/SlantedLineIcon";
 
-const Main = ({
-  width,
-  activeTab,
-  setActiveTab,
-  showContent,
-  setShowContent,
-}) => {
+const Main = ({ width }) => {
+  const [activeTab, setActiveTab] = useState(null);
   const tabLabels = ["Sudoku", "Calendar", "Some game", "E-commerce"];
   const tabContents = [<Sudoku />, <Calendar />, <SomeGame />, <ECommerce />];
 
   return (
     <div className="main">
-      <div>
-        {showContent && activeTab !== null && (
-          <section className={`tab-body ${showContent && "active"}`}>
-            <>
-              <h2 className="content-title">{tabLabels[activeTab]}</h2>
-              <div>{tabContents[activeTab]}</div>
-            </>
-          </section>
-        )}
-
-        {!showContent && (
-          <section className={`tab-body bio ${!showContent && "active"}`}>
-            <Bio width={width} />
-          </section>
-        )}
-      </div>
-      {/* {showContent ? (
-        <section className="tab-body">
-          <div>
-            <h2 className="content-title">{tabLabels[activeTab]}</h2>
-            <div>{tabContents[activeTab]}</div>
+      <section className="tab-content">
+        {activeTab === null ? (
+          <div className={activeTab === null ? "active-content" : ""}>
+            <h2>{"Hello"}</h2>
+            <Bio />
           </div>
-        </section>
-      ) : (
-       
-        <Bio width={width} />
-      )} */}
+        ) : (
+          tabContents.map((content, index) => (
+            <div
+              key={index}
+              className={activeTab === index ? "active-content" : ""}
+            >
+              <h2>{tabLabels[activeTab]}</h2>
+              <p>{content}</p>
+            </div>
+          ))
+        )}
+      </section>
 
       <div className="tab-section">
         <StraightLineIcon
@@ -59,26 +43,27 @@ const Main = ({
           className="main-line-icon"
         />
 
-        <h2>{"Projects"}</h2>
+        <h3>{"Projects"}</h3>
         {tabLabels.map((label, index) => (
           <ul key={index} className="tab-label">
-            <Tab
-              label={label}
+            <li
+              className={activeTab === index ? "active-link" : ""}
               onClick={() => {
                 setActiveTab(index);
-                setShowContent(true);
               }}
-              className={activeTab === index ? "active-link" : ""}
-            />
+            >
+              {label}
+            </li>
           </ul>
         ))}
       </div>
 
-      <Background setActiveTab={setActiveTab} setShowContent={setShowContent} />
+      <Background setActiveTab={setActiveTab} />
+
       <SlantedLineIcon
         stroke="#e4e4e4"
-        width="180"
-        viewBox="0 0 3000 810"
+        width={width && "100"}
+        viewBox="0 0 1500 810"
         strokeWidth="10"
       />
     </div>

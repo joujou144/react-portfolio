@@ -52,7 +52,6 @@ body {
 
 .app {
   height: 100vh;
-  /* margin: 2.5em auto; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,7 +61,7 @@ body {
   max-width: 1480px;
   width: 90%;
   margin: 0 auto;
-  background: var(--clr-pitch);
+  background: var(--clr-dark);
   backdrop-filter: blur(2px);
   box-shadow: 0px 0px 8px 15px #00000006;
   border-radius: 8px;
@@ -71,59 +70,10 @@ body {
 }
 
 
-.hero-bg img{
-  max-width: 250px;
-  cursor: pointer; 
-  margin-bottom: -0.3em;
-  filter: grayscale(25%);
-}
-
-.main {
-  padding: 3em 0 4em 3em;
-  display: flex;
-  /* border: 1px solid purple; */
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-/* .main > * {
-  height: 255px;
-} */
-
-.main > *:nth-child(1) {
-  flex: 1 1 45%;
-}
-
-.main > *:nth-child(2) {
-  flex: 1 1 20%;
-  align-self: flex-end;
-  padding-left: 2em;
-}
-
-.main > *:nth-child(3) {
-  flex: 1 1 10%;
-
-  align-self: flex-end;
-  /* border: 1px solid white; */
-}
-
-.main > *:nth-child(4) {
-  flex: 1 1 10%;
-}
-
-.tab-section {
-  display: flex;
-  /* mobile */
-  flex-direction: column;
-  gap: 0.5em;
-  /* border: 1px solid orange; */
-}
-
 header {
   display: flex;
   align-items: center;
   gap: 1.2em;
-  /* border: 1px solid purple; */
 }
 
 header .line-icon {
@@ -150,84 +100,128 @@ header h1 {
   stroke-opacity: 1;
   stroke: var(--primary);
   stroke-width: 1.2;
-  /* fill-rule: evenodd; */
   stroke-dashoffset: 3000;
   stroke-dasharray: 3000;
   animation: 12s ease-in forwards name-icon;
 }
 
+.main {
+  padding: 3em 0 4em 3em;
+  display: flex;
+  /* border: 1px solid purple; */
+  flex-wrap: wrap;
+  align-items: center;
+  align-items: center;
+}
 
-.tab-body {
+.main > *:nth-child(1) {
+  flex: 1 1 45%;
+  min-width: 25ch;
+}
+
+.main > *:nth-child(2) {
+  flex: 1 1 20%;
+  padding-left: 2em;
+}
+
+.main > *:nth-child(3) {
+  flex: 1 1 10%;
+
+  /* border: 1px solid white; */
+}
+
+.main > *:nth-child(4) {
+  flex: 1 1 10%;
+}
+
+.tab-content {
+  position: relative;
+  /* border: 1px solid pink; */
+  overflow: hidden;
+  height: 300px;
+}
+
+.tab-content > div {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  transition: all 0.5s ease-in-out;
-  border: 1px solid pink;
-  height: 300px;
+  position: absolute;
+  top: -100%;
+  right: 0;
+  left: 0;
   opacity: 0;
-  transform: translateY(-100%); 
 }
 
-.tab-body.active {
-  /* max-height: 290px; 
+.tab-content > div.active-content {
+  /* transform: translateY(0); */
+  top: 0px;
   opacity: 1;
-  transform: translateY(0);  */
-  opacity: 1;
-  transform: translateY(0); 
+  animation: active-content 0.4s ease-in-out;
 }
 
-/* .tab-body.active.slide-up {
-  transform: translateY(-100%); 
-} */
+@keyframes active-content {
+  0% {
+    transform: translateX(4%)
+  }
 
-.bio p {
-  white-space: pre-wrap;
+  100% {
+    transform: translateX(0);
+  }
 }
 
-.content-title {
+.tab-content > div h2 {
   font-weight: 200;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  text-align: left;
 }
 
 .content-links {
   display: flex;
-  gap: 1em;  
+  gap: 1em;
+  margin-top: 1em;
 }
 
 .content-links a {
-  text-decoration: none;
-  padding: 0.3em 0;
-  border-bottom: 1px solid transparent;
   color: var(--rose);
+  text-decoration: none;
+  padding: 0.2em 0;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease-in-out;
 }
 
 .content-links a:hover {
   border-bottom: 1px solid #E4E4E4;
-  transition: 0.6s ease-in-out;
 }
 
-.straight-icon {
-  align-self: center;
-}
+/* .tab-section {
+  border: 1px solid orange;
+} */
 
 .tab-label {
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: self-start;
+  display: flex; 
+  justify-self: start;
 }
 
 .tab-label li {
   list-style: none;
   text-decoration: none;
+  cursor: pointer;
+  margin-top: 0.3em;
   padding: 0.2em 0;
-  transition: color 0.3s ease;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s ease ease-in-out;
 }
 
-.active-link {
+.tab-label li.active-link {
   color: var(--candy);
   border-bottom: 1px solid var(--candy);
+}
+
+.hero-bg img{
+  max-width: 250px;
+  cursor: pointer; 
+  margin-bottom: -0.3em;
+  filter: grayscale(25%);
 }
 
 footer {
@@ -235,7 +229,6 @@ footer {
   justify-content: flex-end;
   align-items: center;
   padding: 1em 0;
-
 }
 
 footer p {

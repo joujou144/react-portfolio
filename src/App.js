@@ -8,8 +8,6 @@ const App = () => {
   // const [offsetY, setOffsetY] = useState(0);
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
-  const [showContent, setShowContent] = useState(false);
-  const [activeTab, setActiveTab] = useState(null);
 
   // const handleScroll = () => setOffsetY(window.scrollY);
 
@@ -33,25 +31,25 @@ const App = () => {
     <>
       <ParticlesBackground
         width={width}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        showContent={showContent}
-        setShowContent={setShowContent}
+        // activeTab={activeTab}
+        // setActiveTab={setActiveTab}
+        // showContent={showContent}
+        // setShowContent={setShowContent}
       />
       <section className="app">
         <div className="container">
           <Header
             width={width}
-            showContent={showContent}
-            setShowContent={setShowContent}
+            // showContent={showContent}
+            // setShowContent={setShowContent}
           />
 
           <Main
             width={width}
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
-            showContent={showContent}
-            setShowContent={setShowContent}
+            // activeTab={activeTab}
+            // setActiveTab={setActiveTab}
+            // showContent={showContent}
+            // setShowContent={setShowContent}
           />
 
           <Footer width={width} />
