@@ -13,18 +13,8 @@ const ECommerce = () => {
       }
 
       <span className="content-links">
-        <a
-          href="https://github.com/joujou144"
-          className="hover:border-b transition-all duration-100 ease py-2"
-        >
-          {"Github"}
-        </a>
-        <a
-          href="https://github.com/joujou144"
-          className="hover:border-b transition-all duration-100 ease py-2"
-        >
-          {"View demo"}
-        </a>
+        <a href="https://github.com/joujou144">{"Github"}</a>
+        <a href="https://github.com/joujou144">{"View demo"}</a>
       </span>
     </>
   );

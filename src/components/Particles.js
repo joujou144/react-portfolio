@@ -16,7 +16,7 @@ const ParticlesBackground = () => {
           autoPlay: true,
           background: {
             color: {
-              value: "#1d1d20",
+              value: "#1b0f0b",
             },
             image: "",
             position: "",
@@ -28,7 +28,7 @@ const ParticlesBackground = () => {
             composite: "destination-out",
             cover: {
               color: {
-                value: "#1d1d20",
+                value: "#1b0f0b",
               },
               opacity: 1,
             },
@@ -146,7 +146,7 @@ const ParticlesBackground = () => {
                 area: {
                   gradient: {
                     start: {
-                      value: "#ffffff",
+                      value: "f0e4cc",
                     },
                     stop: {
                       value: "#ccc",
@@ -210,7 +210,7 @@ const ParticlesBackground = () => {
               },
             },
             color: {
-              value: "#fff",
+              value: "#f0e4cc",
               animation: {
                 h: {
                   count: 0,

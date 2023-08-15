@@ -4,14 +4,21 @@ import Calendar from "./projects/Calendar";
 import ECommerce from "./projects/ECommerce";
 import SomeGame from "./projects/SomeGame";
 import Sudoku from "./projects/Sudoku";
+import Timer from "./projects/Timer";
 import StraightLineIcon from "./icons/StraightLineIcon";
 import Background from "./Background";
 import SlantedLineIcon from "./icons/SlantedLineIcon";
 
 const Main = ({ width }) => {
   const [activeTab, setActiveTab] = useState(null);
-  const tabLabels = ["Sudoku", "Calendar", "Some game", "E-commerce"];
-  const tabContents = [<Sudoku />, <Calendar />, <SomeGame />, <ECommerce />];
+  const tabLabels = ["Sudoku", "Calendar", "Ecommerce", "Some game", "Timer"];
+  const tabContents = [
+    <Sudoku />,
+    <Calendar />,
+    <ECommerce />,
+    <SomeGame />,
+    <Timer />,
+  ];
 
   return (
     <div className="main">
@@ -19,7 +26,9 @@ const Main = ({ width }) => {
         {activeTab === null ? (
           <div className={activeTab === null ? "active-content" : ""}>
             <h2>{"Hello"}</h2>
-            <Bio />
+            <p>
+              <Bio />
+            </p>
           </div>
         ) : (
           tabContents.map((content, index) => (

@@ -29,28 +29,12 @@ const App = () => {
 
   return (
     <>
-      <ParticlesBackground
-        width={width}
-        // activeTab={activeTab}
-        // setActiveTab={setActiveTab}
-        // showContent={showContent}
-        // setShowContent={setShowContent}
-      />
-      <section className="app">
-        <div className="container">
-          <Header
-            width={width}
-            // showContent={showContent}
-            // setShowContent={setShowContent}
-          />
+      <section className="container">
+        <div className="inner-container">
+          <ParticlesBackground />
+          <Header width={width} />
 
-          <Main
-            width={width}
-            // activeTab={activeTab}
-            // setActiveTab={setActiveTab}
-            // showContent={showContent}
-            // setShowContent={setShowContent}
-          />
+          <Main width={width} />
 
           <Footer width={width} />
         </div>
