@@ -1,40 +1,12 @@
-import StraightLineIcon from "./icons/StraightLineIcon";
 import LogoNameIcon from "./icons/LogoNameIcon";
+import HorizontalLineIcon from "./icons/HorizontalLineIcon";
 
-const Header = ({ width }) => {
+const Header = ({ width, setActiveTab }) => {
   return (
     <header>
-      <div className="line-icon">
-        <StraightLineIcon
-          stroke="#efeceb"
-          height="20"
-          className="icon"
-          viewBox="0 0 15000 810"
-          width={
-            width <= 400
-              ? "100"
-              : width <= 500
-              ? "150"
-              : width <= 650
-              ? "250"
-              : "355"
-          }
-          strokeWidth={
-            width <= 400
-              ? "420"
-              : width <= 500
-              ? "350"
-              : width <= 650
-              ? "230"
-              : "150"
-          }
-        />
-      </div>
-
-      <div className="name">
+      <div onClick={() => setActiveTab(null)}>
         <LogoNameIcon
-          className="icon name-icon"
-          height={width <= 400 ? "60" : "80"}
+          className="name-icon"
           viewBox={
             width <= 400
               ? "0 0 1700 263"
@@ -44,9 +16,23 @@ const Header = ({ width }) => {
               ? "0 0 1700 263"
               : "0 0 1500 263"
           }
-          width={width <= 500 ? "300" : width <= 650 ? "370" : "450"}
+          width={width <= 650 ? "230" : "280"}
         />
-        <h1 className="load-hidden">{"Frontend Developer"}</h1>
+      </div>
+
+      <div className="line-icon cursor-pointer">
+        <HorizontalLineIcon
+          height="20"
+          className="header-line"
+          viewBox="0 0 37000 810"
+          width={width <= 650 ? "450" : "885"}
+          strokeWidth="30"
+        />
+      </div>
+      <div className="social-links">
+        <a href="https://www.linkedin.com/in/aznimrahman">{"LinkedIn"}</a>
+        <a href="https://github.com/joujou144">{"Github"}</a>
+        <a href="https://www.linkedin.com/in/aznimrahman">{"Contact"}</a>
       </div>
     </header>
   );

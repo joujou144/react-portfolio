@@ -1,31 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 import Bio from "./Bio";
 import Calendar from "./projects/Calendar";
 import ECommerce from "./projects/ECommerce";
 import SomeGame from "./projects/SomeGame";
 import Sudoku from "./projects/Sudoku";
 import Timer from "./projects/Timer";
-import StraightLineIcon from "./icons/StraightLineIcon";
-import Background from "./Background";
-import SlantedLineIcon from "./icons/SlantedLineIcon";
+import Profile from "./images/mypic-bnw.png";
+import Gif from "./images/grid.gif";
+import VerticalLineIcon from "./icons/VerticalLineIcon";
 
-const Main = ({ width }) => {
-  const [activeTab, setActiveTab] = useState(null);
-  const tabLabels = ["Sudoku", "Calendar", "Ecommerce", "Some game", "Timer"];
+const Main = ({ width, activeTab, setActiveTab }) => {
+  const tabLabels = ["Timer", "Sudoku", "Calendar", "Ecommerce", "Some game"];
   const tabContents = [
+    <Timer />,
     <Sudoku />,
     <Calendar />,
     <ECommerce />,
     <SomeGame />,
-    <Timer />,
   ];
+
+  console.log(width);
 
   return (
     <div className="main">
+      <section className="hero">
+        <img src={Profile} className="profile" alt="profile" />
+        <img src={Gif} alt="gif" className="gif" />
+      </section>
+
       <section className="tab-content">
         {activeTab === null ? (
           <div className={activeTab === null ? "active-content" : ""}>
-            <h2>{"Hello"}</h2>
+            <h3>{"FRONTEND | CREATIVE DEV"}</h3>
             <p>
               <Bio />
             </p>
@@ -36,26 +42,25 @@ const Main = ({ width }) => {
               key={index}
               className={activeTab === index ? "active-content" : ""}
             >
-              <h2>{tabLabels[activeTab]}</h2>
-              <p>{content}</p>
+              <h3>{tabLabels[activeTab]}</h3>
+              <div>{content}</div>
             </div>
           ))
         )}
       </section>
 
-      <div className="tab-section">
-        <StraightLineIcon
-          stroke="#e4e4e4"
-          width="150"
-          viewBox="0 0 15000 810"
-          strokeWidth="50"
-          className="main-line-icon"
+      <section className="tab-section">
+        <VerticalLineIcon
+          className="tab-line line-icon"
+          viewBox="0 0 800 800"
+          width="400"
+          height="400"
         />
-
         <h3>{"Projects"}</h3>
-        {tabLabels.map((label, index) => (
-          <ul key={index} className="tab-label">
+        <ul>
+          {tabLabels.map((label, index) => (
             <li
+              key={index}
               className={activeTab === index ? "active-link" : ""}
               onClick={() => {
                 setActiveTab(index);
@@ -63,18 +68,9 @@ const Main = ({ width }) => {
             >
               {label}
             </li>
-          </ul>
-        ))}
-      </div>
-
-      <Background setActiveTab={setActiveTab} />
-
-      <SlantedLineIcon
-        stroke="#e4e4e4"
-        width={width && "100"}
-        viewBox="0 0 1500 810"
-        strokeWidth="10"
-      />
+          ))}
+        </ul>
+      </section>
     </div>
   );
 };

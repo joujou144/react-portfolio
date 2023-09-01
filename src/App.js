@@ -8,7 +8,7 @@ const App = () => {
   // const [offsetY, setOffsetY] = useState(0);
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
-
+  const [activeTab, setActiveTab] = useState(null);
   // const handleScroll = () => setOffsetY(window.scrollY);
 
   const updateWidth = () => {
@@ -31,10 +31,14 @@ const App = () => {
     <>
       <section className="container">
         <div className="inner-container">
-          <ParticlesBackground />
-          <Header width={width} />
+          {/* <ParticlesBackground /> */}
+          <Header width={width} setActiveTab={setActiveTab} />
 
-          <Main width={width} />
+          <Main
+            width={width}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+          />
 
           <Footer width={width} />
         </div>

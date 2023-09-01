@@ -1,7 +1,6 @@
 import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
-import Background from "./Background";
 const ParticlesBackground = () => {
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine);
@@ -16,7 +15,7 @@ const ParticlesBackground = () => {
           autoPlay: true,
           background: {
             color: {
-              value: "#1b0f0b",
+              value: "#1d1d20",
             },
             image: "",
             position: "",
@@ -87,17 +86,7 @@ const ParticlesBackground = () => {
               bounce: {
                 distance: 200,
               },
-              bubble: {
-                distance: 200,
-                duration: 0.4,
-                mix: false,
-                divs: {
-                  distance: 200,
-                  duration: 0.4,
-                  mix: false,
-                  selectors: [],
-                },
-              },
+
               connect: {
                 distance: 80,
                 links: {
@@ -149,14 +138,14 @@ const ParticlesBackground = () => {
                       value: "f0e4cc",
                     },
                     stop: {
-                      value: "#ccc",
+                      value: "f0e4cc",
                     },
                   },
                   radius: 1000,
                 },
                 shadow: {
                   color: {
-                    value: "#ccc",
+                    value: "#f7f2e6",
                   },
                   length: 2000,
                 },
@@ -291,7 +280,7 @@ const ParticlesBackground = () => {
                 right: "out",
                 top: "out",
               },
-              random: false,
+              random: true,
               size: false,
               speed: 2,
               spin: {
@@ -310,15 +299,15 @@ const ParticlesBackground = () => {
             number: {
               density: {
                 enable: true,
-                width: 1920,
+                width: 1620,
                 height: 1080,
               },
               limit: 0,
-              value: 400,
+              value: 450,
             },
             opacity: {
               random: {
-                enable: false,
+                enable: true,
                 minimumValue: 0.1,
               },
               value: {
@@ -341,7 +330,7 @@ const ParticlesBackground = () => {
             shadow: {
               blur: 0,
               color: {
-                value: "#ccc",
+                value: "#f7f2e6",
               },
               enable: false,
               offset: {
@@ -383,7 +372,7 @@ const ParticlesBackground = () => {
               },
               value: 0,
               opacityRate: 1,
-              sizeRate: 1,
+              sizeRate: 2,
               velocityRate: 1,
             },
             destroy: {
@@ -419,7 +408,7 @@ const ParticlesBackground = () => {
               },
               enable: false,
               enlighten: {
-                enable: false,
+                enable: true,
                 value: 0,
               },
               mode: "vertical",
@@ -427,7 +416,7 @@ const ParticlesBackground = () => {
             },
             tilt: {
               random: {
-                enable: false,
+                enable: true,
                 minimumValue: 0,
               },
               value: 0,
@@ -448,7 +437,7 @@ const ParticlesBackground = () => {
               },
               particles: {
                 enable: true,
-                frequency: 0.1,
+                frequency: 0.3,
                 opacity: 1,
               },
             },
@@ -544,7 +533,6 @@ const ParticlesBackground = () => {
           },
         }}
       />
-      {/* <Background /> */}
     </>
   );
 };

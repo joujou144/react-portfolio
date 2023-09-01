@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Now Light';
+    src: url('./now/now.light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Now Regular';
+    src: url('./now/now.regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Now Thin';
+    src: url('./now/now.thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
